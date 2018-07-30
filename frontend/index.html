@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html>
+<style>
+  #map {
+    height: 100%;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+
+<h1>My First Map</h1>
+<div id="map">
+
+</div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Custom fonts for this template -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 90%;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <!-- <div class="col-md-6 mb-4">
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade gradient-card-header blue-gradient">
+                    <h5 class="mb-0">Regular map</h5>
+                </div>
+                <div class="card-body card-body-cascade text-center">
+                    <div id="map-container-5" class="z-depth-1" style="height: 300px"></div>
+
+                </div>
+            </div>
+        </div> -->
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-8">
+            <!--Card-->
+            <div class="card card-cascade narrower">
+                <!--Card image-->
+                <div class="view view-cascade gradient-card-header peach-gradient">
+                    <h5 class="mb-0">Custom map</h5>
+                </div>
+                <!--/Card image-->
+                <!--Card content-->
+                <div class="card-body card-body-cascade text-center">
+                    <!--Google map-->
+                    <div id="map-container-6" class="z-depth-1" style="height: 300px"></div>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card-->
+
+        </div>
+        <div class="col-4">INPUT</div>
+
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+        [ . . . ]
+
+    <!--Google Maps-->
+      <h2>"HELLO"</h2>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFbIUj1JWOibobJTK7fAq5UH7LFSHFRhk&callback=initMap"
+    async defer></script>
+  <!-- <script src="adapter.js"></script> -->
+    <script src="init.js"></script>
+    <script src="js/clean-blog.min.js"></script>
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </body>
+</html>
