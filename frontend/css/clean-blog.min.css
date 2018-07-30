@@ -42,7 +42,7 @@ blockquote {
   text-align: left;
   border: grey solid 1px;
   padding: 1rem;
-  width: 500px;
+  width: auto;
   /* height: auto; */
   display: inline-grid;
   margin: 1rem 2rem;
