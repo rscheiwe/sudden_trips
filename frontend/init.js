@@ -11,8 +11,8 @@ function userTemplate(user) {
 }
 
 function renderUsers(users) {
-  debugger
-  const template = users.data.forEach(el => el.map(userTemplate)).join('')
+  // debugger
+  const template = users.data.map(userTemplate).join('')
   renderUser(template)
 }
 
