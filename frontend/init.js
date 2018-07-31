@@ -3,6 +3,21 @@ document.addEventListener("DOMContentLoaded", init)
 // google.maps.getElementById('search-form').addEventListener('submit', handleTextInput)
 
 function init() {
+  Adapter.readUsers().then(renderUsers)
+}
+
+function userTemplate(user) {
+  return `<p>${user.attributes.username}</p>`
+}
+
+function renderUsers(users) {
+  debugger
+  const template = users.data.forEach(el => el.map(userTemplate)).join('')
+  renderUser(template)
+}
+
+function renderUser(template) {
+  document.querySelector('#user-list').innerHTML += template
 }
 
 // let map;
@@ -54,9 +69,8 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
     if (places.length == 0) {
       return;
     } else {
-      // searchParent.innerHTML += `${textInput}`
-      // console.log(places)
-      searchResults.innerHTML += `${places.map(place => `<li>${place.name}</li>`).join('')}`
+
+      searchResults.innerHTML += `${places.map(place => `<li>${place.name} | ${place.formatted_address}</li>`).join('')}`
     }
     let markers = [];
 
@@ -70,8 +84,6 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
     let bounds = new google.maps.LatLngBounds();
 
     places.forEach(function(place) {
-
-      // console.log(place.name)
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
@@ -92,19 +104,19 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
         position: place.geometry.location
       })
 
+      let contentTemplate = `<h5>${place.name}</h5>
+                              <p class="small">${place.formatted_address}</p>
+                              <p>Rating: ${place.rating}</p>
+                              ${place.types.map(type => `<p>${type}</p>`).join('')}
+                            `
+
       let infowindowSearch;
-      infowindowSearch = new google.maps.InfoWindow({content: `${place.name}`});
+      infowindowSearch = new google.maps.InfoWindow({content: contentTemplate});
       marker.addListener('click', function(e){
         // e.va.stopPropagation()
         infowindowSearch.open(map, marker)
       })
       // markers.push(marker);
-
-      // let contentTemplate =
-      //       `<div>
-      //           <p>${place.name}</p>
-      //         </div>`
-
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
@@ -116,14 +128,3 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
     map.fitBounds(bounds);
   });
 }
-
-// function addMarkerListeners(markers){
-//   console.log(markers);
-//   markers.forEach(marker => {
-//     infowindowSearch =
-//     marker.addListener('click', function(e) {
-//       // e.preventDefault()
-//
-//     })
-//   })
-// }

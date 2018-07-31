@@ -11,7 +11,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 
 gem 'active_model_serializers'
-gem 'rack-cors'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

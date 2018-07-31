@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
     end
   end
-get '*other', to: "static#index"
+# get '*other', to: "static#index"
 
 end
