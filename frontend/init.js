@@ -6,19 +6,6 @@ function init() {
   Adapter.readUsers().then(renderUsers)
 }
 
-function userTemplate(user) {
-  return `<p>${user.attributes.username}</p>`
-}
-
-function renderUsers(users) {
-  // debugger
-  const template = users.data.map(userTemplate).join('')
-  renderUser(template)
-}
-
-function renderUser(template) {
-  document.querySelector('#user-list').innerHTML += template
-}
 
 // let map;
 // function initMap(lat=40.7336, long=-74.0027) {
@@ -107,8 +94,10 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
       let contentTemplate = `<h5>${place.name}</h5>
                               <p class="small">${place.formatted_address}</p>
                               <p>Rating: ${place.rating}</p>
-                              ${place.types.map(type => `<p>${type}</p>`).join('')}
+
                             `
+
+                            // ${place.types.map(type => `<p>${type}</p>`).join('')}
 
       let infowindowSearch;
       infowindowSearch = new google.maps.InfoWindow({content: contentTemplate});

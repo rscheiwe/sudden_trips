@@ -16,19 +16,22 @@
     <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 
   </head>
   <body id="grad1">
-    <div class="row" >
+    <div class="container-fluid">
+      <div class="row" >
 
       <!-- <div id="grad1"></div> -->
         <div class="col-md-8">
             <!--Card-->
-            <div class="card card-cascade narrower" style="margin:20px; background-color:rgba(255, 255, 255, 0.8)">
+            <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, 0.8)">
                 <!--Card image-->
+                <!-- <div class="card"> -->
                 <div class="view view-cascade peach-gradient">
-                    <h5 class="mb-0">Custom mapCustom mapCustom mapCustom mapCustom mapCustom mapCustom mapCustom map</h5>
+                    <h5 class="mb-0">Custom   mapCustommapCustommapCustommapCustommapCustommapCustommapCustommapCustom   mapCustom  map</h5>
                 </div>
                 <!--/Card image-->
                 <!--Card content-->
@@ -41,6 +44,7 @@
               </div>
             </div>
 
+
           </div>
           <div class="col-4">
               <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, .8)">
@@ -48,11 +52,16 @@
                   <div class="card-body">
                     <h5 class="card-title">Traveler: Bill Gates</h5>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <button id="add-trip"  style="color:white;font-family:Lora;" class="button" type="button" name="button">Add Trip</button>
+                    <button id="show-trip"  style="color:white;font-family:Indie Flower" class="button" type="button" name="button">Pending Trips</button>
+
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
                   </div>
                 </div>
               </div>
           </div>
+        </div>
 
 <!-- itinerary -->
 
@@ -62,7 +71,7 @@
         <!--Card-->
         <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, .8)">
           <img class="card-img-top" src="https://ih1.redbubble.net/image.84668211.6972/flat,550x550,075,f.u7.jpg" alt="Card image cap" style="width:24rem">
-            <div class="card-body">
+            <div class="card-body" id="user-list">
               <h5 class="card-title">Custom mapCustom mapCustom mapCustom mapCustom mapCustom mapCustom mapCustom map</h5>
               <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
               <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -71,11 +80,12 @@
         </div>
       <div class="col-4">
           <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, .8)">
-            <img class="card-img-top" src="https://ih1.redbubble.net/image.84668211.6972/flat,550x550,075,f.u7.jpg" alt="Card image cap" style="width:24rem">
-              <div class="card-body" id="user-list">
-                <h5 class="card-title">Traveler: Bill Gates</h5>
+              <div class="card-body">
+                <h3>Pending Trips</h3>
+                <ul>
+
+                </ul>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
