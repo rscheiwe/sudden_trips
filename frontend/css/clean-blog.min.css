@@ -54,6 +54,18 @@ blockquote {
 .card {
   text-align: left;
   border: grey solid 1px;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 100%;
+  height: auto;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #5F084B
+}
+.card2 {
+  text-align: left;
+  border: grey solid 1px;
+  border-radius: 20px;
   padding: 1rem;
   width: auto;
   height: auto;
