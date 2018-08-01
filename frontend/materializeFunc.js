@@ -32,30 +32,19 @@ function handleShowTripClick(event) {
 
 function suddentripTemplate(suddentrip) {
 
-    return `<center><div id="accordion">
-              <div class="card" style="width:75%" data-id="${suddentrip.id}">
-                <div class="collapsible-header" id="headingOne">
-                  <h5 class="mb-0">
-                    <button id="expand" class="btn btn-link" style="font-family:Oswald" data-toggle="collapse" data-target="#collapse${suddentrip.id}" aria-expanded="true" aria-controls="collapseOne">
-                      ${suddentrip.attributes.name}
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapse${suddentrip.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                  <div class="card-body">
-                    <h4 style="font-family:Oswald" data-id="name${suddentrip.id}">${suddentrip.attributes.name}</h4>
-
-                      <i><p class="small" style="font-family:Oswald"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></p></i>
-                        <p class="small" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p></p>
+    return `
+                  <li>
+                      <i><div class="collapsible-header" style="font-family:Oswald"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></div></i>
+                        <div class="collapsible-body" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
                         <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small" data-id="Destination${suddentrip.id}">${destination.name} | ${destination.address}</p>`).join('') : ""}
 
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
                         <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button></div>
-                    </div>
-                  </div>
-                </div>
-              </div></center>`
+                        </div></li>
+                  `
+
+
 
 
 }
@@ -68,7 +57,7 @@ function renderSuddentrips(suddentrips) {
 
 function renderSuddentrip(template) {
 
-  document.querySelector('#suddentrip-list').innerHTML += template
+  document.querySelector('#collapsible-popout').innerHTML += template
 }
 
 function handleTripClick(e) {

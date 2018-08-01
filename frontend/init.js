@@ -9,7 +9,7 @@ document.querySelector("#add-trip-button").addEventListener('click', () => {
 // })
 
 function init() {
-  UserAdapter.readUsers().then(renderUsers)
+  UserAdapter.readUsers().then()
   SuddentripAdapter.readSuddentrips().then(renderSuddentrips)
   .then(document.addEventListener("click", handleTripEdit))
 
@@ -62,13 +62,13 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
 
     let textInput = document.querySelector('#pac-input').value
     let searchParent = document.querySelector('#test-list')
-    let searchResults = document.querySelector('#get-text')
+    let searchResults = document.querySelector('#user-list')
 
     if (places.length == 0) {
       return;
     } else {
 
-      searchResults.innerHTML += `${places.map(place => `<li>${place.name} | ${place.formatted_address}</li>`).join('')}`
+      searchResults.innerHTML += `${places.map(place => `<p style="font-family: Oswald;">${place.name} | ${place.formatted_address}</p>`).join('')}`
     }
     let markers = [];
 
@@ -121,6 +121,7 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
         document.querySelector('.btn-info').addEventListener('click', e => {
           e.preventDefault()
           let id  = e.target.parentElement.parentElement.dataset.id
+
           debugger
         })
       })
