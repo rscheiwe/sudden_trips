@@ -53,7 +53,7 @@ blockquote {
 
 .card {
   text-align: left;
-  border: grey solid 1px;
+  /* border: grey solid 1px; */
   border-radius: 20px;
   padding: 1rem;
   width: 100%;
@@ -64,7 +64,7 @@ blockquote {
 }
 .card2 {
   text-align: left;
-  border: grey solid 1px;
+  /* border: grey solid 1px; */
   border-radius: 20px;
   padding: 1rem;
   width: auto;
@@ -315,7 +315,7 @@ button {
   border-radius: 5px;
   height: 2rem;
   width: max-content;
-  color: white;
+  color: whitesmoke;
   font-size: 12px;
   justify-self: center;
   }

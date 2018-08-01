@@ -1,13 +1,13 @@
-const Adapter = {
+const UserAdapter = {
 
   readUsers: function() {
     return fetch("http://localhost:3000/api/v1/users", {
-      method: "GET",
+      method: "GET"
     }).then(res => res.json())
   },
 
   createUser: function(name) {
-    return fetch("http://localhost:3000/users", {
+    return fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ const Adapter = {
   },
 
   updateUser: function( XXX, id ) {
-    return fetch("http://localhost:3000/users" + '/' + id, {
+    return fetch("http://localhost:3000/api/v1/users" + '/' + id, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -33,8 +33,16 @@ const Adapter = {
   },
 
   deleteUser: function(id) {
-    return fetch("http://localhost:3000/users" +'/' + id, {
+    return fetch("http://localhost:3000/api/v1/users" +'/' + id, {
       method: "DELETE"
     })
+  }
+}
+
+const SuddentripAdapter = {
+  readSuddentrips: function() {
+    return fetch("http://localhost:3000/api/v1/suddentrips", {
+      method: "GET"
+    }).then(res => res.json())
   }
 }

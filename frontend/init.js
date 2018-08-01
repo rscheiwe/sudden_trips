@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", init)
 // google.maps.getElementById('search-form').addEventListener('submit', handleTextInput)
 
 function init() {
-  Adapter.readUsers().then(renderUsers)
+  UserAdapter.readUsers().then(renderUsers)
+  SuddentripAdapter.readSuddentrips().then(renderSuddentrips)
 }
 
 

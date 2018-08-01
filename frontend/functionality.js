@@ -31,32 +31,32 @@ function suddentripTemplate(suddentrip) {
               <div class="card" style="width:75%" data-id="${suddentrip.id}">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${suddentrip.id}" aria-expanded="true" aria-controls="collapseOne">
-                      ${suddentrip.name}
+                    <button class="btn btn-link" style="font-family:Oswald" data-toggle="collapse" data-target="#collapse${suddentrip.id}" aria-expanded="true" aria-controls="collapseOne">
+                      ${suddentrip.attributes.name}
                     </button>
                   </h5>
                 </div>
                 <div id="collapse${suddentrip.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
-                    <h4>${suddentrip.name}</h4>
-                      <hr>
-                      <i><p class="small"><b>Updated:</b>  ${new Date()}</p></i>
-                        <p class="small"><b>Circulating:</b> ${crypto.circulating_supply} out of ${crypto.max_supply}</p>
-                        <p class="small"><b>USD Price:</b>  $${crypto.quotes.USD.price}</p>
-                        <p class="small"><b>24hr Volume:</b>  $${crypto.quotes.USD.volume_24h}</p>
-                        <button type="submit" class="btn-success" id="add-button" style="float: right;">Add to Watchlist</button>
+                    <h4 style="font-family:Oswald">${suddentrip.attributes.name}</h4>
+
+                      <i><p class="small" style="font-family:Oswald"><b>Date:</b> ${suddentrip.attributes.date}</p></i>
+                        <p class="small" style="font-family:Oswald"><b>Location:</b> ${suddentrip.attributes.location}</p>
+                        <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations.map(destination => `<p class="small">${destination.name} | ${destination.address}</p>`).join('')}
+
+                        <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
+                        <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
+                        <button type="submit"  style="font-family:Oswald"class="btn-success" id="add-button" style="float: right;">Add to Watchlist</button>
                     </div>
                   </div>
                 </div>
               </div></center>`
 }
-
 function renderSuddentrips(suddentrips) {
-  const template = Object.values(cryptos["data"]).map(cryptoTemplate).join('')
+  const template = suddentrips.data.map(suddentripTemplate).join('')
   renderSuddentrip(template)
 }
 
 function renderSuddentrip(template) {
-  const suddentripList = document.querySelector('#suddentrip-list')
-  suddentripList.innerHTML += template
+  document.querySelector('#suddentrip-list').innerHTML += template
 }
