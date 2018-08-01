@@ -34,14 +34,16 @@ function suddentripTemplate(suddentrip) {
 
     return `
                   <li>
-                      <i><div class="collapsible-header" style="font-family:Oswald"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></div></i>
-                        <div class="collapsible-body" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
+                      <i><div class="collapsible-header" style="font-family:Oswald" data-id="${suddentrip.id}">${suddentrip.attributes.name}</div></i>
+                      <i><div class="collapsible-body" style="font-family:Oswald"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
+                        <p class="small" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
                         <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small" data-id="Destination${suddentrip.id}">${destination.name} | ${destination.address}</p>`).join('') : ""}
 
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
                         <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button></div>
-                        </div></li>
+                        </div>
+                </li>
                   `
 
 
