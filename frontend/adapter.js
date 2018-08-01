@@ -74,5 +74,6 @@ const SuddentripAdapter = {
         date: date
       })
     })
+    .then(res => res.json())
   }
 }

@@ -102,10 +102,13 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
         position: place.geometry.location
       })
 
-      let contentTemplate = `<h5>${place.name}</h5>
+      let contentTemplate = `
+                          <div data-id="Place${place.id}">
+                              <h5>${place.name}</h5>
                               <p class="small">${place.formatted_address}</p>
                               <p>Rating: ${place.rating}</p>
-
+                              <p><button class="btn-info">Add to Destination</button></p>
+                            </div>
                             `
 
                             // ${place.types.map(type => `<p>${type}</p>`).join('')}
@@ -115,6 +118,11 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
       marker.addListener('click', function(e){
         // e.va.stopPropagation()
         infowindowSearch.open(map, marker)
+        document.querySelector('.btn-info').addEventListener('click', e => {
+          e.preventDefault()
+          let id  = e.target.parentElement.parentElement.dataset.id
+          debugger
+        })
       })
       // markers.push(marker);
 
