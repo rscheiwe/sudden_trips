@@ -1,9 +1,13 @@
 
-let addBTN = document.querySelector('#add-trip')
-addBTN.addEventListener('click', handleAddTripClick)
+// let addBTN = document.querySelector('#add-trip')
+// addBTN.addEventListener('click', handleAddTripClick)
 
-let showBTN = document.querySelector('#show-trip')
-showBTN.addEventListener('click', handleShowTripClick )
+//
+// let showBTN = document.querySelector('#show-trip')
+// showBTN.addEventListener('click', handleShowTripClick )
+
+// let submitForm = document.querySelector('.submit-trip')
+// submitForm.addEventListener('submit', handleTripClick)
 
 function userTemplate(user) {
   return `<p>${user.attributes.username}</p>`
@@ -27,6 +31,7 @@ function handleShowTripClick(event) {
 }
 
 function suddentripTemplate(suddentrip) {
+
     return `<center><div id="accordion">
               <div class="card" style="width:75%" data-id="${suddentrip.id}">
                 <div class="card-header" id="headingOne">
@@ -42,7 +47,7 @@ function suddentripTemplate(suddentrip) {
 
                       <i><p class="small" style="font-family:Oswald"><b>Date:</b> ${suddentrip.attributes.date}</p></i>
                         <p class="small" style="font-family:Oswald"><b>Location:</b> ${suddentrip.attributes.location}</p>
-                        <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations.map(destination => `<p class="small">${destination.name} | ${destination.address}</p>`).join('')}
+                        <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small">${destination.name} | ${destination.address}</p>`).join('') : ""}
 
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
@@ -51,12 +56,31 @@ function suddentripTemplate(suddentrip) {
                   </div>
                 </div>
               </div></center>`
+
+
 }
+
 function renderSuddentrips(suddentrips) {
+
   const template = suddentrips.data.map(suddentripTemplate).join('')
   renderSuddentrip(template)
 }
 
 function renderSuddentrip(template) {
+
   document.querySelector('#suddentrip-list').innerHTML += template
+}
+
+function handleTripClick(e) {
+  e.preventDefault();
+  if (e.target.className === 'submit-trip') {
+    let tripName = document.querySelector("#suddentripname").value
+    let tripLocation = document.querySelector("#suddentriplocation").value
+    let tripDate = document.querySelector("#suddentripdate").value
+
+    SuddentripAdapter.createSuddentrip(tripName, tripLocation, tripDate)
+      .then(json => suddentripTemplate(json.data))
+      .then(renderSuddentrip)
+  }
+
 }

@@ -1,11 +1,15 @@
 
 document.addEventListener("DOMContentLoaded", init)
-// google.maps.getElementById('search-form').addEventListener('submit', handleTextInput)
+document.querySelector("#add-trip-button").addEventListener('click', () => {
+  document.addEventListener("click", handleTripClick)
+})
 
 function init() {
   UserAdapter.readUsers().then(renderUsers)
   SuddentripAdapter.readSuddentrips().then(renderSuddentrips)
+
 }
+
 
 
 // let map;

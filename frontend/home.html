@@ -52,8 +52,8 @@
                   <div class="card-body">
                     <h5 class="card-title" style="font-family:Oswald">Traveler: Bill Gates</h5>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <center><button id="add-trip"  style="color:white;font-family:Indie Flower;" class="button" type="button" name="button">Add Trip</button>
-                    <button id="show-trip"  style="color:white;font-family:Indie Flower" class="button" type="button" name="button">Pending Trips</button></center>
+                    <center><button id="add-trip-button"  style="color:white;font-family:Indie Flower;" class="button" type="button" name="button" data-toggle="modal" data-target="#exampleModalCenter">Add Trip</button>
+                    <button id="show-trip-button"  style="color:white;font-family:Indie Flower" class="button" type="button" name="button">Pending Trips</button></center>
                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                   </div>
                 </div>
@@ -65,7 +65,7 @@
 
 <div class="row" >
   <!-- <div id="grad1"></div> -->
-    <div class="col-md-8">
+    <div class="col-md-7">
         <!--Card-->
         <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, .8)">
           <img class="card-img-top" src="https://www.gpsmycity.com/img/ctw/319.jpg" alt="Card image cap" style="width:auto">
@@ -76,10 +76,10 @@
             </div>
           </div>
         </div>
-      <div class="col-4">
+      <div class="col-5">
           <div class="card2" style="margin:20px; background-color:rgba(255, 255, 255, .8)">
               <div class="card-body" id="suddentrip-list">
-                <h3 style="font-family:Oswald">Pending Trips Pending Trips Pending Trips </h3>
+                <h3 style="font-family:Oswald">Pending Pending TripsPending Trips Pending Trips </h3>
                 <ul>
 
                 </ul>
@@ -95,6 +95,34 @@
               </ul>
             </div>
           </div>
+
+<!-- MODAL -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Create a Suddentrip!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add-button">
+                Suddentrip Name:<br>
+                <input type="text"  id="suddentripname" name="suddentripname"><br>
+                Location:<br>
+                <input type="text"  id="suddentriplocation" name="location"><br>
+                When are you going?:<br>
+                <input type="text"  id="suddentripdate" name="date">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="button"  style="color:white;font-family:Indie Flower;" data-dismiss="modal">Close</button>
+              <button type="submit" class="submit-trip" style="color:white;font-family:Indie Flower;" value="Submit Trip" data-dismiss="modal">Submit Trip</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <!--Grid column-->
       <!-- </div> -->
 

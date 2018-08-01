@@ -44,5 +44,20 @@ const SuddentripAdapter = {
     return fetch("http://localhost:3000/api/v1/suddentrips", {
       method: "GET"
     }).then(res => res.json())
+  },
+
+  createSuddentrip: function(name, location, date) {
+    return fetch("http://localhost:3000/api/v1/suddentrips", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        location: location,
+        date: date
+      })
+    }).then(res => res.json())
   }
 }
