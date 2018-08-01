@@ -3,12 +3,18 @@ document.addEventListener("DOMContentLoaded", init)
 document.querySelector("#add-trip-button").addEventListener('click', () => {
   document.addEventListener("click", handleTripClick)
 })
+// document.querySelector("#accordion").addEventListener("click", () => {
+//   document.querySelector("#expand").addEventListener("click", () => {
+//   })
+// })
 
 function init() {
   UserAdapter.readUsers().then(renderUsers)
   SuddentripAdapter.readSuddentrips().then(renderSuddentrips)
+  .then(document.addEventListener("click", handleTripEdit))
 
 }
+
 
 
 
