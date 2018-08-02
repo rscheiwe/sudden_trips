@@ -77,7 +77,7 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
         return `
         <p style="font-family: Oswald;">${place.name} | ${place.formatted_address}</p>
         <div class="input-field col s12">
-          <select multiple>
+          <select multiple id="my-select">
             <option value="" selected>Assign to Trip</option>
             ${json.data.map(search => {
               return `<option value="${search.id}">${search.attributes.name}</option>`
@@ -88,7 +88,13 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
   }).then(()=>{
     let elems = document.querySelectorAll('select');
     let instances = M.FormSelect.init(elems);
+  }).then(() => {
+    document.addEventListener('click', () => {
+      let someVar = document.getElementById("my-select").M_FormSelect.input.value;
+      
+    })
   })
+
   }
   // ${json.data.map(el => `<option value=${el.id}>${el.attributes.name}</option>`)}
 
