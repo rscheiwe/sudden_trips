@@ -36,7 +36,7 @@ function suddentripTemplate(suddentrip) {
                   <li>
                       <i><div class="collapsible-header" style="font-family:Oswald" data-id="${suddentrip.id}">${suddentrip.attributes.name}</div></i>
                       <i><div class="collapsible-body" style="font-family:Oswald; background-color:white"><b>Name:</b> <p data-id="name${suddentrip.id}">${suddentrip.attributes.name}</p></i>
-                        <p class="collapsible-body" style="font-family:Oswald; background-color:white"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
+                        <p class="small" style="font-family:Oswald; background-color:white"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
                         <p class="small" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
                         <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small" data-id="Destination${suddentrip.id}">${destination.name} | ${destination.address}</p>`).join('') : ""}
 
@@ -85,7 +85,6 @@ function handleTripEdit(e) {
     e.preventDefault()
     let trip = e.target.dataset.id
     let buttonsField = document.querySelector(`[data-id="buttons${trip}"]`)
-    // buttonsField.innerHTML =  `<button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${trip}" style="float: right;">Edit</button>`
 
     let tripName = document.querySelector(`[data-id="name${trip}"]`)
     let tripLocation = document.querySelector(`[data-id="location${trip}"]`)
@@ -95,11 +94,10 @@ function handleTripEdit(e) {
     let location = tripLocation.innerText
     let date = tripDate.innerText
 
-    tripName.innerHTML = `<input type="text" class="newName" value="${name}">`
-    tripLocation.innerHTML = `<input type="text" class="newLocation" value="${location}">`
-    tripDate.innerHTML = `<input type="text" class="newDate"  value="${date}">`
+    tripName.innerHTML = `<input type="text" class="newName" value="${name}" style="color:red">`
+    tripLocation.innerHTML = `<input type="text" class="newLocation" value="${location}" style="color:red">`
+    tripDate.innerHTML = `<input type="text" class="newDate"  value="${date}" style="color:red">`
 
-    // buttonsField = document.querySelector(`[data-id="buttons${trip}"]`)
     buttonsField.innerHTML = `    <button type="submit" style="font-family:Oswald" class="btn-success" data-id="${trip}" style="float: right;">Save</button>`
     buttonsField.innerHTML += `    <button type="submit" style="font-family:Oswald" class="btn-danger" data-id="${trip}" style="float: right;">Cancel</button>`
 
@@ -110,7 +108,8 @@ function handleTripEdit(e) {
       tripDate.innerHTML = `${date}`
       buttonsField.removeChild(document.querySelector(".btn-danger"))
       buttonsField.removeChild(document.querySelector(".btn-success"))
-      buttonsField.innerHTML =  `<button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${trip}" style="float: right;">Edit</button>`
+      buttonsField.innerHTML =  `<button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${trip}" style="float: right;">Edit</button>                          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+`
 
     })
 
