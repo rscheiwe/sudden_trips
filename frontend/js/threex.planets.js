@@ -43,9 +43,12 @@ THREEx.Planets.createVenus	= function(){
 THREEx.Planets.createEarth	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
+		// map		: THREE.ImageUtils.loadTexture('https://s8.postimg.cc/k1azqmg4l/earthmap1k.jpg'),
 		map		: THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
+		// bumpMap		: THREE.ImageUtils.loadTexture('https://s8.postimg.cc/5tlb2byed/earthbump1k.jpg'),
 		bumpMap		: THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
 		bumpScale	: 0.05,
+		// specularMap	: THREE.ImageUtils.loadTexture('https://s8.postimg.cc/oyokc7ndx/earthspec1k.jpg'),
 		specularMap	: THREE.ImageUtils.loadTexture('images/earthspec1k.jpg'),
 		specular	: new THREE.Color('grey'),
 	})
@@ -96,9 +99,11 @@ THREEx.Planets.createEarthCloud	= function(){
 			contextResult.putImageData(dataResult,0,0)
 			material.map.needsUpdate = true;
 		})
+		// imageTrans.src	= 'https://s8.postimg.cc/vdnl8jekl/earthcloudmaptrans.jpg';
 		imageTrans.src	= 'images/earthcloudmaptrans.jpg';
 	}, false);
 	imageMap.src	= 'images/earthcloudmap.jpg';
+	// imageMap.src	= 'https://s8.postimg.cc/c8kbytxcl/earthcloudmap.jpg';
 
 	var geometry	= new THREE.SphereGeometry(0.51, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
@@ -115,8 +120,10 @@ THREEx.Planets.createEarthCloud	= function(){
 THREEx.Planets.createMoon	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: THREE.ImageUtils.loadTexture('images/moonmap1k.jpg'),
-		bumpMap	: THREE.ImageUtils.loadTexture('images/moonbump1k.jpg'),
+		map	: THREE.ImageUtils.loadTexture('https://s8.postimg.cc/6ke17ziqd/moonmap1k.jpg'),
+		// map	: THREE.ImageUtils.loadTexture('images/moonmap1k.jpg'),
+		bumpMap	: THREE.ImageUtils.loadTexture('https://s8.postimg.cc/5i3upjut1/moonbump1k.jpg'),
+		// bumpMap	: THREE.ImageUtils.loadTexture('images/moonbump1k.jpg'),
 		bumpScale: 0.002,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
@@ -320,7 +327,7 @@ THREEx.Planets.createPluto	= function(){
 }
 
 THREEx.Planets.createStarfield	= function(){
-	var texture	= THREE.ImageUtils.loadTexture('images/galaxy_starfield.png')
+	var texture	= THREE.ImageUtils.loadTexture('https://s8.postimg.cc/8c7034f0l/galaxy_starfield.png')
 	var material	= new THREE.MeshBasicMaterial({
 		map	: texture,
 		side	: THREE.BackSide

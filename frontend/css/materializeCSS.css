@@ -8,6 +8,10 @@ html, body {
   padding: 0;
 }
 
+.ui {
+  position:absolute;
+}
+
 .padding{
   height: 20px;
 }

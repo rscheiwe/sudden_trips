@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <style>
+    #info {
+    	position: absolute;
+    	top: 100px;
+    	width: 100%;
+    	text-align: center;
+    	z-index: 100;
+    	display:block;
+    }
+    </style>
+
     <script type="text/javascript" src="js/three.js"></script>
 
     <script type="text/javascript">
@@ -30,12 +41,14 @@
 
   </head>
 
-  <body id="test" style='margin: 0px; background-color: #000000;'>
+  <body id="test" style='margin: 0px; background-color: #000000;' position="relative" >
+    <!-- <div id="info" style="color:white;"><img src="images/logo.png" style="height:50px"></div>
+    <div id="info" style="color:white;"><h1 style="font-family:Oswald">NxtPath</h1></div> -->
 
   <script>
 
     var renderer = new THREE.WebGLRenderer({antialias:true});
-    renderer.setSize( window.innerWidth, window.innerHeight);
+    renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
     // renderer.shadowMapEnabled	= true
 
