@@ -27,6 +27,12 @@ module Api
           end
       end
 
+      def destroy
+        @suddentrip.destroy
+
+        render json: @suddentrip
+      end
+
       private
       def suddentrip_params
         params.require(:suddentrip).permit(:name, :location, :date, :latitude, :longitude, :rating, :destinations)

@@ -41,7 +41,7 @@
 
   </head>
 
-  <body id="test" style='margin: 0px; background-color: #000000;' position="relative" >
+  <body id="test" style='margin: 0px; background-color: black;' position="relative" >
     <!-- <div id="info" style="color:white;"><img src="images/logo.png" style="height:50px"></div>
     <div id="info" style="color:white;"><h1 style="font-family:Oswald">NxtPath</h1></div> -->
 
@@ -164,23 +164,21 @@
 </script>
 </div>
 
-    <div class="padding">
+<!-- //////////////////// -->
+<!-- MAIN CONTENT -->
 
-      <!-- <div class="container-fluid"> -->
+    <!-- <div class="padding"> -->
         <div class="row" >
-
-        <!-- <div id="grad1"></div> -->
-        <div class="col s8">
+          <div class="col s8">
             <!--Card-->
-            <div class="card" style="margin:20px; background-color:rgba(255, 255, 255, 0.8)">
-
-                <div class="card-body card-body-cascade text-center">
+            <div class="card">
+                <!-- <div class="card-body card-body-cascade text-center"> -->
                   <form id="search-form">
                     <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="width:250px; margin:15px">
 
                   </form>
                 <div id="map-container-6" class="z-depth-1" style="height: 300px"></div>
-              </div>
+              <!-- </div> -->
             </div>
           </div>
 
@@ -189,15 +187,15 @@
               <div class="card-image">
                 <img src="https://ih1.redbubble.net/image.84668211.6972/flat,550x550,075,f.u7.jpg">
 
-                  <span class="card-title" style="font-family:Oswald;background-color:gray; opacity:.5;">Traveler: Bill Gates</span>
+                  <span class="card-title" style="font-family:Oswald;background-color:gray; opacity:.7;">Traveler: Bill Gates</span>
                   <span class="card-title" style="font-family:Oswald;">Traveler: Bill Gates</span>
 
                   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_location</i></a>
 
               </div>
               <div class="card-content">
-                <center><button id="add-trip-button"  style="color:white;font-family:Indie Flower;" class="button" type="button" name="button" data-toggle="modal" data-target="#exampleModalCenter">Add Trip</button>
-                <button id="show-trip-button"  style="color:white;font-family:Indie Flower;" class="button" type="button" name="button">Pending Trips</button></center>
+                <center><button id="add-trip-button" data-target="modal1" class="btn modal-trigger">Add Trip</button>
+
               </div>
               <!-- <div class="card-action">
                 <a href="#">This is a link</a>
@@ -216,10 +214,11 @@
           <div class="card">
             <div class="card-image">
               <img src="https://www.gpsmycity.com/img/ctw/319.jpg">
-                <span class="card-title" style="font-family:Oswald;">Traveler: Bill Gates</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <span class="card-title" style="font-family:Oswald;background-color:gray; opacity:.7;">Destination</span>
+                <span class="card-title" style="font-family:Oswald;">Destination</span>
             </div>
-            <div class="card-content">
+
+            <div class="card-content" id="search-list">
               <center><button id="add-trip-button"  style="color:white;font-family:Indie Flower;" class="button" type="button" name="button" data-toggle="modal" data-target="#exampleModalCenter">Add Trip</button>
               <button id="show-trip-button"  style="color:white;font-family:Indie Flower" class="button" type="button" name="button">Pending Trips</button></center>
             </div>
@@ -233,7 +232,38 @@
           <ul class="collapsible popout" id="collapsible-popout" ></ul>
         </div>
       </div>
+    <!-- </div> -->
+
+    <!-- Modal -->
+    <div id="modal1" class="modal">
+
+      <div class="modal-body">
+        <div class="modal-content">
+          <h5 style="font-family:Oswald">Enter your Suddentrip info</h5>
+        <form id="add-button">
+          <!-- Suddentrip Name:<br> -->
+          <input type="text"  class="validate" id="suddentripname" name="suddentripname" required="" aria-required="true">
+          <label for="suddentripname" data-error="wrong" data-success="right"><strong>Suddentrip Name</strong></label><br>
+          <!-- Location:<br> -->
+          <input type="text" class="validate" id="suddentriplocation" name="location" required="" aria-required="true"><br>
+          <label for="suddentriplocation" data-error="wrong" data-success="right"><strong>Location</strong></label><br>
+
+          <!-- When are you going?: -->
+          <input type="text" class="validate" id="suddentripdate" name="date" required="" aria-required="true">
+          <label for="suddentripdate" data-error="wrong" data-success="right"><strong>When are you going?</strong></label><br>
+
+      </div>
     </div>
+      <!-- <div class="modal-footer"> -->
+        <div style="padding-left:3rem;padding-bottom:3rem;" class="padding2">
+        <a class="modal-close btn-floating btn-large waves-effect red"><i class="material-icons">clear</i></a>
+          <a  class="modal-close btn-floating btn-large blue pulse"><i id="submit-trip" class="material-icons">add</i></a>
+        <!-- </div> -->
+      </div>
+      </form>
+  </div>
+
+
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFbIUj1JWOibobJTK7fAq5UH7LFSHFRhk&libraries=places&callback=initAutocomplete"
     async defer></script>

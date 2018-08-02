@@ -1,6 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", init)
 document.querySelector("#add-trip-button").addEventListener('click', () => {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
   document.addEventListener("click", handleTripClick)
 })
 // document.querySelector("#accordion").addEventListener("click", () => {
@@ -12,7 +14,6 @@ function init() {
   UserAdapter.readUsers().then()
   SuddentripAdapter.readSuddentrips().then(renderSuddentrips)
   .then(document.addEventListener("click", handleTripEdit))
-
 }
 
 
@@ -62,7 +63,7 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
 
     let textInput = document.querySelector('#pac-input').value
     let searchParent = document.querySelector('#test-list')
-    let searchResults = document.querySelector('#user-list')
+    let searchResults = document.querySelector('#search-list')
 
     if (places.length == 0) {
       return;

@@ -75,5 +75,10 @@ const SuddentripAdapter = {
       })
     })
     .then(res => res.json())
+  },
+  deleteSuddentrip: function(id) {
+    return fetch("http://localhost:3000/api/v1/suddentrips" +'/' + id, {
+      method: "DELETE"
+    })
   }
 }

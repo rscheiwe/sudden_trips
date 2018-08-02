@@ -42,7 +42,7 @@ function suddentripTemplate(suddentrip) {
 
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
-                        <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button></div>
+                        <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button><button type="submit"  style="font-family:Oswald" class="btn-delete" data-id="${suddentrip.id}" style="float: right;">Delete</button></div>
                         </div>
                 </li>
                   `
@@ -65,7 +65,8 @@ function renderSuddentrip(template) {
 
 function handleTripClick(e) {
   e.preventDefault();
-  if (e.target.className === 'submit-trip') {
+  console.log(e.target.id);
+  if (e.target.id === 'submit-trip') {
     let tripName = document.querySelector("#suddentripname").value
     let tripLocation = document.querySelector("#suddentriplocation").value
     let tripDate = document.querySelector("#suddentripdate").value
@@ -73,6 +74,7 @@ function handleTripClick(e) {
     SuddentripAdapter.createSuddentrip(tripName, tripLocation, tripDate)
       .then(json => suddentripTemplate(json.data))
       .then(renderSuddentrip)
+    document.querySelector('#add-button').reset()
   }
 
 }
@@ -133,4 +135,11 @@ function handleTripEdit(e) {
     })
 
   }
+    if (e.target.className === 'btn-delete') {
+      e.preventDefault()
+      let id = e.target.dataset.id
+      SuddentripAdapter.deleteSuddentrip(id)
+      e.target.parentElement.parentElement.parentElement.remove()
+    }
+
 }
