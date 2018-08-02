@@ -34,19 +34,15 @@
 
   <script>
 
-
-
     var renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize( window.innerWidth, window.innerHeight);
     document.body.appendChild( renderer.domElement );
     // renderer.shadowMapEnabled	= true
 
-
     var onRenderFcts= [];
     var scene	= new THREE.Scene();
     var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
     camera.position.z = 1;
-
 
     var light	= new THREE.AmbientLight( 0x222222 )
     scene.add( light )
@@ -136,7 +132,6 @@
     onRenderFcts.push(function(){
     renderer.render( scene, camera );
     })
-
     //////////////////////////////////////////////////////////////////////////////////
     //		loop runner							//
     //////////////////////////////////////////////////////////////////////////////////
@@ -153,8 +148,6 @@
           onRenderFct(deltaMsec/1000, nowMsec/1000)
         })
         })
-
-
 </script>
 </div>
 
@@ -224,14 +217,13 @@
         </div>
 
         <div class="col s5">
-          <ul class="collapsible popout" id="collapsible-popout"></ul>
+          <ul class="collapsible popout" id="collapsible-popout" ></ul>
         </div>
       </div>
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFbIUj1JWOibobJTK7fAq5UH7LFSHFRhk&libraries=places&callback=initAutocomplete"
     async defer></script>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="materializeFunc.js"></script>

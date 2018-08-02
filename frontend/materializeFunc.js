@@ -35,7 +35,8 @@ function suddentripTemplate(suddentrip) {
     return `
                   <li>
                       <i><div class="collapsible-header" style="font-family:Oswald" data-id="${suddentrip.id}">${suddentrip.attributes.name}</div></i>
-                      <i><div class="collapsible-body" style="font-family:Oswald"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
+                      <i><div class="collapsible-body" style="font-family:Oswald; background-color:white"><b>Name:</b> <p data-id="name${suddentrip.id}">${suddentrip.attributes.name}</p></i>
+                        <p class="collapsible-body" style="font-family:Oswald; background-color:white"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
                         <p class="small" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
                         <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small" data-id="Destination${suddentrip.id}">${destination.name} | ${destination.address}</p>`).join('') : ""}
 
@@ -78,6 +79,7 @@ function handleTripClick(e) {
 
 function handleTripEdit(e) {
   if(e.target.className === 'btn-primary'){
+    // debugger
     e.preventDefault()
     let trip = e.target.dataset.id
     let buttonsField = document.querySelector(`[data-id="buttons${trip}"]`)
