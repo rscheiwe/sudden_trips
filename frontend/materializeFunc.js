@@ -43,7 +43,6 @@ function suddentripTemplate(suddentrip) {
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
                         <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button><button type="submit"  style="font-family:Oswald" class="btn-delete" data-id="${suddentrip.id}" style="float: right;">Delete</button></div>
-                        </div>
                 </li>
                   `
 
@@ -108,8 +107,7 @@ function handleTripEdit(e) {
       tripDate.innerHTML = `${date}`
       buttonsField.removeChild(document.querySelector(".btn-danger"))
       buttonsField.removeChild(document.querySelector(".btn-success"))
-      buttonsField.innerHTML =  `<button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${trip}" style="float: right;">Edit</button>                          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-`
+      buttonsField.innerHTML =  `<button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${trip}" style="float: right;">Edit</button>`
 
     })
 
@@ -118,7 +116,7 @@ function handleTripEdit(e) {
       let newName = document.querySelector(".newName").value
       let newDate = document.querySelector('.newDate').value
       let newLocation = document.querySelector('.newLocation').value
-      // let newDestination = document.querySelector(`[data-id="Destination${id}"]`)
+
       SuddentripAdapter.updateSuddentrip(newName, newLocation, newDate, id)
       .then(suddentripTemplate)
       .then(renderSuddentrip)
