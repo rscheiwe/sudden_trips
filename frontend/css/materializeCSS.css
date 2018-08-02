@@ -12,6 +12,10 @@ html, body {
   position:absolute;
 }
 
+select{
+  display: block;
+}
+
 .padding{
   height: 20px;
 }
