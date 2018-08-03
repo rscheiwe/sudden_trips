@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_202422) do
+ActiveRecord::Schema.define(version: 2018_08_03_175926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_202422) do
     t.integer "rating"
     t.string "date"
     t.json "destinations"
+    t.string "visits"
   end
 
   create_table "user_suddentrips", force: :cascade do |t|

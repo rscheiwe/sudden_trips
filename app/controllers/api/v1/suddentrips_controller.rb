@@ -35,7 +35,7 @@ module Api
 
       private
       def suddentrip_params
-        params.require(:suddentrip).permit(:name, :location, :date, :latitude, :longitude, :rating, :destinations)
+        params.require(:suddentrip).permit(:name, :location, :date, :latitude, :longitude, :rating, :destinations, :visits)
       end
 
       def set_suddentrip

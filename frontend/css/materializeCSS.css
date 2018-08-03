@@ -1,4 +1,7 @@
-map {
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+#map {
   height: 100%;
 }
 
@@ -13,7 +16,7 @@ html, body {
 }
 
 select{
-  display: block;
+  /* display: block; */
 }
 
 .padding{
@@ -21,7 +24,7 @@ select{
 }
 
 description {
-  font-family: Roboto;
+  font-family: Oswald;
   font-size: 15px;
   font-weight: 300;
 }

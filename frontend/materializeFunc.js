@@ -39,7 +39,7 @@ function suddentripTemplate(suddentrip) {
                         <p class="small" style="font-family:Oswald; background-color:white"><b>Date:</b> <p data-id="date${suddentrip.id}">${suddentrip.attributes.date}</p></i>
                         <p class="small" style="font-family:Oswald"><b>Location:</b> <p data-id="location${suddentrip.id}">${suddentrip.attributes.location}</p>
                         <p class="small" style="font-family:Oswald"><b>Destinations:</b> ${suddentrip.attributes.destinations !== null ? suddentrip.attributes.destinations.map(destination => `<p class="small" data-id="Destination${suddentrip.id}">${destination.name} | ${destination.address}</p>`).join('') : ""}
-
+                        <p class="small" style="font-family:Oswald"><b>Planned Visits:</b> ${suddentrip.attributes.visits !== null ? `<p class="small" data-id="Visit${suddentrip.id}">${suddentrip.attributes.visits}</p>` : ""}
                         <p class="small" style="font-family:Oswald"><b>Lat/Long:</b>  ${suddentrip.attributes.latitude} | ${suddentrip.attributes.longitude}</p>
                         <p class="small" style="font-family:Oswald"><b>Rating:</b>  ${suddentrip.attributes.rating}</p>
                         <div data-id="buttons${suddentrip.id}"><button type="submit"  style="font-family:Oswald" class="btn-primary" data-id="${suddentrip.id}" style="float: right;">Edit</button><button type="submit"  style="font-family:Oswald" class="btn-delete" data-id="${suddentrip.id}" style="float: right;">Delete</button></div>
@@ -93,9 +93,9 @@ function handleTripEdit(e) {
     let location = tripLocation.innerText
     let date = tripDate.innerText
 
-    tripName.innerHTML = `<input type="text" class="newName" value="${name}" style="color:red">`
-    tripLocation.innerHTML = `<input type="text" class="newLocation" value="${location}" style="color:red">`
-    tripDate.innerHTML = `<input type="text" class="newDate"  value="${date}" style="color:red">`
+    tripName.innerHTML = `<input type="text" class="newName" value="${name}" style="color:red; font-family:Oswald">`
+    tripLocation.innerHTML = `<input type="text" class="newLocation" value="${location}" style="color:red; font-family:Oswald">`
+    tripDate.innerHTML = `<input type="text" class="newDate"  value="${date}" style="color:red; font-family:Oswald">`
 
     buttonsField.innerHTML = `    <button type="submit" style="font-family:Oswald" class="btn-success" data-id="${trip}" style="float: right;">Save</button>`
     buttonsField.innerHTML += `    <button type="submit" style="font-family:Oswald" class="btn-danger" data-id="${trip}" style="float: right;">Cancel</button>`

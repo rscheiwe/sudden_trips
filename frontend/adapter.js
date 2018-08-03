@@ -76,9 +76,29 @@ const SuddentripAdapter = {
     })
     .then(res => res.json())
   },
+
+  updateSuddentripDestinations: function(name, id) {
+    return fetch("http://localhost:3000/api/v1/suddentrips" + "/" + id, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({
+        visits: name
+      })
+    }).then(res => res.json())
+  },
+
   deleteSuddentrip: function(id) {
     return fetch("http://localhost:3000/api/v1/suddentrips" +'/' + id, {
       method: "DELETE"
     })
   }
 }
+
+// body: JSON.stringify({
+//   destinations: JSON.stringify([{
+//     name: name
+//   }])
+// })

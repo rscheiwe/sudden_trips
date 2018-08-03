@@ -73,27 +73,71 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
 
 
         searchResults.innerHTML += `${places.map(place => {
-
+          // debugger
         return `
-        <p style="font-family: Oswald;">${place.name} | ${place.formatted_address}</p>
-        <div class="input-field col s12">
-          <select multiple id="my-select">
-            <option value="" selected>Assign to Trip</option>
-            ${json.data.map(search => {
-              return `<option value="${search.id}">${search.attributes.name}</option>`
-            }).join('')}
-          </select>
-      </div><hr style="opacity: 0.05;"><br>`
-    }).join('')}`
-  }).then(()=>{
-    let elems = document.querySelectorAll('select');
-    let instances = M.FormSelect.init(elems);
-  }).then(() => {
-    document.addEventListener('click', () => {
-      let someVar = document.getElementById("my-select").M_FormSelect.input.value;
-      
+            <p style="font-family: Oswald;" class="search${place.id}">${place.name} | ${place.formatted_address}</p> <button type="submit" class="submit-new-destinations">SUBMIT</button>
+            <div class="input-field col s12">
+              <select multiple id="my-select">
+                ${json.data.map(trip => {
+                  return `<option class="${trip.attributes.name}" data-id="${trip.id}">${trip.id}. ${trip.attributes.name}</option>`
+                }).join('')}
+              </select>
+              <br>
+              <label>Add to Trip</label>
+          </div>`
+        }).join('')}`
+      }).then(()=>{
+        let elems = document.querySelectorAll('select');
+        let instances = M.FormSelect.init(elems);
+      }).then(() => {
+        document.addEventListener('click', (e) => {
+          // debugger
+          if (e.target.className === 'select-dropdown dropdown-trigger') {
+            e.preventDefault()
+            let destination = e.target.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.textContent
+            var mutationObserver = new MutationObserver(function(mutations) {
+
+              mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'class') {
+                  let id = mutation.target.textContent.split('. ')[0]
+                  SuddentripAdapter.updateSuddentripDestinations(destination, id)
+                };
+              });
+            });
+            mutationObserver.observe(document.documentElement, {
+              attributes: true,
+              characterData: true,
+              childList: true,
+              subtree: true,
+              attributeOldValue: true,
+              characterDataOldValue: true
+            });
+
+              // let destination = e.target.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.textContent
+              let someVar = document.getElementById("my-select").M_FormSelect.input.value;
+              let arrOfTrips = someVar.split(",")
+
+              // let chosenOptions = document.getElementById("my-select").M_FormSelect.input.parentElement.lastElementChild.selectedOptions;
+              let chosenOptions = document.getElementById("my-select").M_FormSelect.input.parentElement.lastElementChild.selectedOptions;
+              console.log(destination)
+            }
+          })
+            // console.log(chosenOptions[0].value)
+            // let testarr = [].slice.call(chosenOptions);
+            // let choices = document.getElementById("my-select").M_FormSelect.input.value
+            // console.log(chosenOptions)
+            // testarr.map(option => {
+            //   SuddentripAdapter.updateSuddentripDestinations(destination, option.value)
+            // })
+
+        //     document.addEventListener('click', (e) => {
+        //       if (e.target.className === 'submit-new-destinations') {
+        //         debugger
+        //   }
+        // })
+
     })
-  })
+
 
   }
   // ${json.data.map(el => `<option value=${el.id}>${el.attributes.name}</option>`)}
