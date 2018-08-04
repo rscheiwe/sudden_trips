@@ -75,7 +75,7 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
         searchResults.innerHTML += `${places.map(place => {
           // debugger
         return `
-            <p style="font-family: Oswald;" class="search${place.id}">${place.name} | ${place.formatted_address}</p> <button type="submit" class="submit-new-destinations">SUBMIT</button>
+            <p style="font-family: Oswald;" class="search${place.id}">${place.name} | ${place.formatted_address}</p> 
             <div class="input-field col s12">
               <select multiple id="my-select">
                 ${json.data.map(trip => {
@@ -99,8 +99,9 @@ function initAutocomplete(lat=40.7336, long=-74.0027) {
 
               mutations.forEach(function(mutation) {
                 if (mutation.attributeName === 'class') {
+
                   let id = mutation.target.textContent.split('. ')[0]
-                  SuddentripAdapter.updateSuddentripDestinations(destination, id)
+                  SuddentripAdapter.updateSuddentripDestinations(destination, id).then(suddentripTemplate).then(renderSuddentrip)
                 };
               });
             });
